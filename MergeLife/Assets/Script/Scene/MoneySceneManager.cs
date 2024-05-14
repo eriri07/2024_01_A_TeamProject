@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainSceneMager : MonoBehaviour
+public class MoneySceneManager : MonoBehaviour
 {
-    public void SceneChange()
+    public void MoneyScene()
+    {
+        SceneManager.LoadScene("MoneyScene");
+    }
+
+    public void BabyScene()
     {
         SceneManager.LoadScene("BabyScene");
     }

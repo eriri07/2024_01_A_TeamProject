@@ -5,9 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneMager : MonoBehaviour
 {
-    public void SceneChange()
+    public void GameStart()
     {
         SceneManager.LoadScene("BabyScene");
+    }
 
+    public void GameSetting()
+    {
+        SceneManager.LoadScene("GameSetting");
+    }
+
+    public void GameExit()
+    {
+        Application.Quit();
     }
 }
