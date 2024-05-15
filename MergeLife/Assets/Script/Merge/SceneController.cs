@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceenController : MonoBehaviour
+public class SceneController : MonoBehaviour
 {
     private void Awake()
     {
-        var obj = FindObjectsOfType<SceenController>();
+        var obj = FindObjectsOfType<SceneController>();
 
             if (obj.Length == 1 )
             {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
             }
             else
             {
-            Destroy(gameObject);
-            }
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }
