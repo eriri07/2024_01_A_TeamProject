@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MoneySceneManager : MonoBehaviour
 {
+        
     public void MoneyScene()
     {
         SceneManager.LoadScene("MoneyScene");

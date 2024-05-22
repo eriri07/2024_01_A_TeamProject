@@ -350,7 +350,6 @@ GameObject:
   - component: {fileID: 418451854}
   - component: {fileID: 418451857}
   - component: {fileID: 418451856}
-  - component: {fileID: 418451855}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -377,20 +376,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &418451855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418451853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0281a128e3fbe6b41aed2f4478876014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useRichText: 0
-  m_spacing: 2
 --- !u!114 &418451856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,7 +1010,6 @@ GameObject:
   - component: {fileID: 1704425422}
   - component: {fileID: 1704425425}
   - component: {fileID: 1704425424}
-  - component: {fileID: 1704425423}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1052,20 +1036,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1704425423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704425421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0281a128e3fbe6b41aed2f4478876014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useRichText: 0
-  m_spacing: 3
 --- !u!114 &1704425424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,7 +1069,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uC2DC\uC791"
+  m_Text: "\uAC8C\uC784 \uC2DC\uC791"
 --- !u!222 &1704425425
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1303,7 +1273,6 @@ GameObject:
   - component: {fileID: 1964360115}
   - component: {fileID: 1964360118}
   - component: {fileID: 1964360117}
-  - component: {fileID: 1964360116}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1330,20 +1299,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1964360116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964360114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0281a128e3fbe6b41aed2f4478876014, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useRichText: 0
-  m_spacing: 3
 --- !u!114 &1964360117
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems; // IDropHandler 상속을 위한
 public class Slot : MonoBehaviour, IDropHandler
 {
+    internal static object inst;
+
     //이전 포스팅의 Icon함수를 대체 하는 프로퍼티
     public GameObject item
     {
