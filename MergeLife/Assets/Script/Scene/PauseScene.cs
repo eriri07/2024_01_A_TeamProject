@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    // 다른 스크립트에서 쉽게 접근이 가능하도록 static
     public static bool GameIsPaused = false;
     public GameObject pauseMenuCanvas;
     void Update()
@@ -44,9 +43,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ToMain()
     {
-        Debug.Log("아직 미구현입니다...");
-        //Time.timeScale = 1f;
-        //SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainScene");
     }
 
     public void QuitGame()
