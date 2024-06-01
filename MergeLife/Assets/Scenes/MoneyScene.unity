@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 202812020}
-  - component: {fileID: 202812019}
+  - component: {fileID: 202812021}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -140,18 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &202812019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202812018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b257d84eccf38a4884a9379e4d2feae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &202812020
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +155,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &202812021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202812018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3feeb15d62e31684aa567c14e5c05eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &244198315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,6 +1126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   innerPanelTransform: {fileID: 4809998480566425930}
   itemPrefab: {fileID: 2382114919268917671, guid: 5584a8ebb972b714a864ad72cbdf565b, type: 3}
+  characterUpgradeManager: {fileID: 0}
 --- !u!114 &2751504284395226472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2381,8 +2382,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 202812019}
-        m_TargetAssemblyTypeName: MoneySceneManager, Assembly-CSharp
+      - m_Target: {fileID: 202812021}
+        m_TargetAssemblyTypeName: SceneMager, Assembly-CSharp
         m_MethodName: BabyScene
         m_Mode: 1
         m_Arguments:

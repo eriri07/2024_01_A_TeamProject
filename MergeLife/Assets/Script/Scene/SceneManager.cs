@@ -19,4 +19,19 @@ public class SceneMager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void MoneyScene()
+    {
+        SceneManager.LoadScene("MoneyScene");
+    }
+
+    public void BabyScene()
+    {
+        SceneManager.LoadScene("BabyScene");
+    }
+
+    public void ShopScene()
+    {
+        SceneManager.LoadScene("ShopScene");
+    }
 }
