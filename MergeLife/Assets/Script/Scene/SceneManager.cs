@@ -9,8 +9,8 @@ public class SceneMager : MonoBehaviour
 
     public GameObject babyScene;
     public GameObject moneyScene;
-    public GameObject PauseCanvas;
-    public GameObject ShopCanvas;
+    public GameObject pauseCanvas;
+    public GameObject shopCanvas;
 
 
     public void GameStart()
@@ -46,16 +46,18 @@ public class SceneMager : MonoBehaviour
 
     public void ShopPanel()
     {
-        ShopCanvas.SetActive(true);
-        PauseCanvas.SetActive(false);
+        shopCanvas.SetActive(true);
+        pauseCanvas.SetActive(false);
+
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
     public void Resume()
     {
-        ShopCanvas.SetActive(false);
-        PauseCanvas.SetActive(true);
+        shopCanvas.SetActive(false);
+        pauseCanvas.SetActive(true);
+
         Time.timeScale = 1f;
         GameIsPaused = false;
     }

@@ -355,7 +355,7 @@ PrefabInstance:
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1043034298}
+      objectReference: {fileID: 138606532}
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1068,6 +1068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 138606530}
   - component: {fileID: 138606531}
+  - component: {fileID: 138606532}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1104,8 +1105,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   babyScene: {fileID: 1279718128}
   moneyScene: {fileID: 1810619314}
-  PauseCanvas: {fileID: 700619560}
-  ShopCanvas: {fileID: 1003466521}
+  pauseCanvas: {fileID: 1043034297}
+  shopCanvas: {fileID: 1003466521}
+--- !u!114 &138606532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138606528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7cb29cb5c68174eab6875848db5632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 700619560}
 --- !u!1001 &139948000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4642,18 +4656,18 @@ PrefabInstance:
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 138606532}
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GameStart
+      value: ToSettingMenu
       objectReference: {fileID: 0}
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneMager, Assembly-CSharp
+      value: PauseMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5795,7 +5809,6 @@ GameObject:
   - component: {fileID: 1043034301}
   - component: {fileID: 1043034300}
   - component: {fileID: 1043034299}
-  - component: {fileID: 1043034298}
   m_Layer: 5
   m_Name: PauseCanvas
   m_TagString: Untagged
@@ -5803,19 +5816,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1043034298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043034297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f7cb29cb5c68174eab6875848db5632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuCanvas: {fileID: 700619560}
 --- !u!114 &1043034299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10187,10 +10187,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1043034302}
-  - {fileID: 1529460029}
   - {fileID: 1279718132}
   - {fileID: 1810619319}
+  - {fileID: 1529460029}
+  - {fileID: 1043034302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10281,7 +10281,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1043034298}
+      - m_Target: {fileID: 138606532}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
@@ -11825,7 +11825,7 @@ PrefabInstance:
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1043034298}
+      objectReference: {fileID: 138606532}
     - target: {fileID: 7128878733178503351, guid: d71dfeafe3698c84abc11d667b425100, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
