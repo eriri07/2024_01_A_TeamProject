@@ -10,7 +10,7 @@ public class GameControl : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        /*DontDestroyOnLoad(gameObject);
 
         if (control == null)
         {
@@ -19,6 +19,6 @@ public class GameControl : MonoBehaviour
         else if (control != this)
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 }
