@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MoneyScene.unity
     guid: c9c3734989dc1b343980c8985e0d33b3
+  - enabled: 1
+    path: Assets/Scenes/StudentScene.unity
+    guid: d1f09c9009a71ce4891a038073839aab
   m_configObjects: {}

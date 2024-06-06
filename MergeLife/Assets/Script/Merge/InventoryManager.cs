@@ -62,7 +62,7 @@ public class InventoryManager : MonoBehaviour
     public Transform innerPanelTransform;
     public GameObject itemPrefab;
 
-    public CharacterUpgradeManager characterUpgradeManager; // 캐릭터 업그레이드 매니저 참조
+    public CharacterUpgradeManager characterUpgradeManager;
 
     // Start is called before the first frame update
     void Start()
@@ -104,7 +104,6 @@ public class InventoryManager : MonoBehaviour
         var item = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
         item.GetComponent<Item>().SetItem(newNumber, newParent);
 
-        // 캐릭터 업그레이드 매니저에 통보
         if (characterUpgradeManager != null)
         {
             characterUpgradeManager.OnItemMerged(newNumber);

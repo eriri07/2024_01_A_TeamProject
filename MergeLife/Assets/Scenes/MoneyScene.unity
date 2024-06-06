@@ -167,6 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3feeb15d62e31684aa567c14e5c05eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  babyScene: {fileID: 0}
+  moneyScene: {fileID: 0}
+  pauseCanvas: {fileID: 0}
+  shopCanvas: {fileID: 0}
+  GalleryCanvas: {fileID: 0}
 --- !u!1 &244198315
 GameObject:
   m_ObjectHideFlags: 0

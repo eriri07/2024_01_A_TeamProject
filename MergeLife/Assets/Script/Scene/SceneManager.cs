@@ -11,6 +11,7 @@ public class SceneMager : MonoBehaviour
     public GameObject moneyScene;
     public GameObject pauseCanvas;
     public GameObject shopCanvas;
+    public GameObject GalleryCanvas;
 
 
     public void GameStart()
@@ -62,4 +63,13 @@ public class SceneMager : MonoBehaviour
         GameIsPaused = false;
     }
 
+    public void OnGallery()
+    {
+        GalleryCanvas.SetActive(true);
+    }
+
+    public void OffGallery()
+    {
+        GalleryCanvas.SetActive(false);
+    }
 }
