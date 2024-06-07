@@ -1069,7 +1069,6 @@ GameObject:
   - component: {fileID: 138606530}
   - component: {fileID: 138606531}
   - component: {fileID: 138606532}
-  - component: {fileID: 138606533}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1122,19 +1121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 700619560}
---- !u!114 &138606533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138606528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6757389b52c5d4098946bcfa15eb35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: StudentScene
 --- !u!1001 &139948000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6243,34 +6229,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6965436155231564330, guid: 652aaeabba254234d8f0ecfd9e38e552, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1075513214}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 652aaeabba254234d8f0ecfd9e38e552, type: 3}
 --- !u!224 &1075513212 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5549945487637835442, guid: 652aaeabba254234d8f0ecfd9e38e552, type: 3}
   m_PrefabInstance: {fileID: 1075513211}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1075513213 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6965436155231564330, guid: 652aaeabba254234d8f0ecfd9e38e552, type: 3}
-  m_PrefabInstance: {fileID: 1075513211}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1075513214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075513213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6757389b52c5d4098946bcfa15eb35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: 
 --- !u!1 &1080773985
 GameObject:
   m_ObjectHideFlags: 0
@@ -6849,6 +6814,7 @@ GameObject:
   - component: {fileID: 1279718130}
   - component: {fileID: 1279718129}
   - component: {fileID: 1279718133}
+  - component: {fileID: 1279718134}
   m_Layer: 5
   m_Name: BabyCanvas
   m_TagString: Untagged
@@ -6934,6 +6900,7 @@ RectTransform:
   - {fileID: 1549541944}
   - {fileID: 1533764466}
   - {fileID: 2030778215}
+  - {fileID: 1672911415}
   m_Father: {fileID: 1883779240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6954,6 +6921,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameitem: {fileID: 2382114919268917671, guid: 5584a8ebb972b714a864ad72cbdf565b, type: 3}
+--- !u!114 &1279718134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279718128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6757389b52c5d4098946bcfa15eb35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: StudentScene
+  text: {fileID: 1672911416}
 --- !u!1001 &1288138478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7317,7 +7298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   innerPanelTransform: {fileID: 674797632}
   itemPrefab: {fileID: 2382114919268917671, guid: 5584a8ebb972b714a864ad72cbdf565b, type: 3}
-  characterUpgradeManager: {fileID: 138606533}
+  characterUpgradeManager: {fileID: 1279718134}
 --- !u!1 &1348113314
 GameObject:
   m_ObjectHideFlags: 0
@@ -9240,6 +9221,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653225852}
+  m_CullTransparentMesh: 1
+--- !u!1 &1672911414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1672911415}
+  - component: {fileID: 1672911417}
+  - component: {fileID: 1672911416}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1672911415
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672911414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1279718132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 100, y: -180}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1672911416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672911414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 6416e01a17bd7444b9b913df59501cf6, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: ': 0'
+--- !u!222 &1672911417
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672911414}
   m_CullTransparentMesh: 1
 --- !u!1 &1714127760
 GameObject:

@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CharacterUpgradeManager : MonoBehaviour
+public class MoneyManager : MonoBehaviour
 {
     private int mergeCount = 0; 
-    public string nextSceneName;
 
     public Text text;
     int score = 0;
@@ -20,29 +19,13 @@ public class CharacterUpgradeManager : MonoBehaviour
             score += 1;
 
             SetText();
-            CheckMergeCount();
         }
     }
 
-    void CheckMergeCount()
-    {
-        if (mergeCount >= 2)
-        {
-            LoadNextScene();
-        }
-    }
 
     public void SetText()
     {
         text.text = ": " + score.ToString();
     }
 
-    void LoadNextScene()
-    {
-        if (!string.IsNullOrEmpty(nextSceneName))
-        {
-            SceneManager.LoadScene("StudentScene"); 
-        }
-
-    }
 }
