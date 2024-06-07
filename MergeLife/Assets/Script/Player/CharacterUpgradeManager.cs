@@ -11,7 +11,7 @@ public class CharacterUpgradeManager : MonoBehaviour
 
     public void OnItemMerged(int newNumber)
     {
-        if (newNumber == 2)
+        if (newNumber == 4)
         {
             mergeCount++;
             CheckMergeCount();
@@ -20,7 +20,7 @@ public class CharacterUpgradeManager : MonoBehaviour
 
     void CheckMergeCount()
     {
-        if (mergeCount >= 1)
+        if (mergeCount >= 2)
         {
             LoadNextScene();
         }
