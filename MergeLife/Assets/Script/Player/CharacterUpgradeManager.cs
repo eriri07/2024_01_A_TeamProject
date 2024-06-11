@@ -14,7 +14,7 @@ public class CharacterUpgradeManager : MonoBehaviour
 
     public void OnItemMerged(int newNumber)
     {
-        if (newNumber == 2)
+        if (newNumber == 4)
         {
             mergeCount++;
             score += 1;
