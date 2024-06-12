@@ -6,43 +6,72 @@ using UnityEngine.UI;
 
 public class CharacterUpgradeManager : MonoBehaviour
 {
-    private int mergeCount = 0; 
-    public string nextSceneName;
+    private Dictionary<string, int> mergeCounts = new Dictionary<string, int>();
+    public Dictionary<string, string> itemScenes = new Dictionary<string, string>();
 
-    public Text text;
-    int score = 0;
+    public Text ScoreText;
+    private int Score = 0;
 
-    public void OnItemMerged(int newNumber)
+    public Text itemText;
+    public Text item2Text;
+
+    void Start()
     {
-        if (newNumber == 4)
-        {
-            mergeCount++;
-            score += 1;
+        mergeCounts.Add("Item", 0);
+        mergeCounts.Add("Item2", 0);
 
-            SetText();
-            CheckMergeCount();
+        itemScenes.Add("Item", "StudentScene");
+        itemScenes.Add("Item2", "MoneyScene");
+
+        UpdateUI();
+    }
+
+    public void OnItemMerged(int newNumber, string itemType)
+    {
+        if (newNumber == 3)
+        {
+            if (mergeCounts.ContainsKey(itemType))
+            {
+                mergeCounts[itemType]++;
+                Score += 1;
+
+                UpdateUI();
+                CheckMergeCount(itemType);
+            }
+            else
+            {
+                Debug.LogWarning("Unknown item type: " + itemType);
+            }
         }
     }
 
-    void CheckMergeCount()
+    void CheckMergeCount(string itemType)
     {
-        if (mergeCount >= 2)
+        if (mergeCounts[itemType] >= 2)
         {
-            LoadNextScene();
+            LoadNextScene(itemType);
         }
     }
 
-    public void SetText()
+    void LoadNextScene(string itemType)
     {
-        text.text = ": " + score.ToString();
+        if (itemScenes.ContainsKey(itemType))
+        {
+            string nextSceneName = itemScenes[itemType];
+            if (!string.IsNullOrEmpty(nextSceneName))
+            {
+                SceneManager.LoadScene(nextSceneName);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No scene defined for item type: " + itemType);
+        }
     }
 
-    void LoadNextScene()
+    void UpdateUI()
     {
-        if (!string.IsNullOrEmpty(nextSceneName))
-        {
-            SceneManager.LoadScene("StudentScene"); 
-        }
-
+        itemText.text = ": " + mergeCounts["Item"];
+        item2Text.text = ": " + mergeCounts["Item2"];
     }
 }
