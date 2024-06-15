@@ -54,7 +54,16 @@ public class InventoryManager : MonoBehaviour
     public void UpgradeExistingItem(Item item, int newNumber)
     {
         string itemType = item.itemType;
-        item.SetItem(newNumber, itemType, item.transform.parent);
+
+        if (newNumber < 4)
+        {
+            item.SetItem(newNumber, itemType, item.transform.parent);
+        }
+        else
+        {
+            Destroy(item.gameObject);
+        }
+
         if (characterUpgradeManager != null)
         {
             characterUpgradeManager.OnItemMerged(newNumber, itemType);
@@ -73,4 +82,3 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 }
-

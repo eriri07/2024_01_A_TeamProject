@@ -12,23 +12,29 @@ public class CharacterUpgradeManager : MonoBehaviour
     public Text ScoreText;
     private int Score = 0;
 
-    public Text itemText;
-    public Text item2Text;
+    public Text 야구공Text;
+    public Text 바이올린Text;
+    public Text 수갑Text;
+    public Text 청진기Text;
 
     void Start()
     {
-        mergeCounts.Add("Item", 0);
-        mergeCounts.Add("Item2", 0);
+        mergeCounts.Add("야구공", 0);
+        mergeCounts.Add("바이올린", 0);
+        mergeCounts.Add("수갑", 0);
+        mergeCounts.Add("청진기", 0);
 
-        itemScenes.Add("Item", "StudentScene");
-        itemScenes.Add("Item2", "MoneyScene");
+        itemScenes.Add("야구공", "BaseballScene");
+        itemScenes.Add("바이올린", "ViolinScene");
+        itemScenes.Add("수갑", "PoliceScene");
+        itemScenes.Add("청진기", "DoctorScene");
 
         UpdateUI();
     }
 
     public void OnItemMerged(int newNumber, string itemType)
     {
-        if (newNumber == 3)
+        if (newNumber == 4)
         {
             if (mergeCounts.ContainsKey(itemType))
             {
@@ -47,7 +53,7 @@ public class CharacterUpgradeManager : MonoBehaviour
 
     void CheckMergeCount(string itemType)
     {
-        if (mergeCounts[itemType] >= 2)
+        if (mergeCounts[itemType] >= 4)
         {
             LoadNextScene(itemType);
         }
@@ -71,7 +77,9 @@ public class CharacterUpgradeManager : MonoBehaviour
 
     void UpdateUI()
     {
-        itemText.text = ": " + mergeCounts["Item"];
-        item2Text.text = ": " + mergeCounts["Item2"];
+        야구공Text.text = ": " + mergeCounts["야구공"] + " / 4";
+        바이올린Text.text = ": " + mergeCounts["바이올린"] + " / 4";
+        수갑Text.text = ": " + mergeCounts["수갑"] + " / 4";
+        청진기Text.text = ": " + mergeCounts["청진기"] + " / 4";
     }
 }
