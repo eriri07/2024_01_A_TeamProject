@@ -31,16 +31,12 @@ public class SceneMager : MonoBehaviour
 
     public void MoneyScene()
     {
-        //SceneManager.LoadScene("MoneyScene");
-
         moneyScene.SetActive(true);
         babyScene.SetActive(false);
     }
 
     public void BabyScene()
     {
-        //SceneManager.LoadScene("BabyScene");
-
         babyScene.SetActive(true);
         moneyScene.SetActive(false);
     }

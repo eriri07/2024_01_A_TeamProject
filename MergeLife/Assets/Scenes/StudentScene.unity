@@ -3437,7 +3437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b4bf9283602b74147a32a3d060638050, type: 3}
+  m_Texture: {fileID: 2800000, guid: 144fe22923ced5d49a8db0b8d969cfd6, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6508,9 +6508,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6757389b52c5d4098946bcfa15eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  calendarText: {fileID: 0}
   ScoreText: {fileID: 0}
-  itemText: {fileID: 0}
-  item2Text: {fileID: 0}
+  "\uC57C\uAD6C\uACF5Text": {fileID: 0}
+  "\uBC14\uC774\uC62C\uB9B0Text": {fileID: 0}
+  "\uC218\uAC11Text": {fileID: 0}
+  "\uCCAD\uC9C4\uAE30Text": {fileID: 0}
 --- !u!1 &1080773985
 GameObject:
   m_ObjectHideFlags: 0
@@ -7209,9 +7212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6757389b52c5d4098946bcfa15eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  calendarText: {fileID: 0}
   ScoreText: {fileID: 0}
-  itemText: {fileID: 799426349}
-  item2Text: {fileID: 845366026}
+  "\uC57C\uAD6C\uACF5Text": {fileID: 0}
+  "\uBC14\uC774\uC62C\uB9B0Text": {fileID: 0}
+  "\uC218\uAC11Text": {fileID: 0}
+  "\uCCAD\uC9C4\uAE30Text": {fileID: 0}
 --- !u!1001 &1288138478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8685,9 +8691,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6757389b52c5d4098946bcfa15eb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  calendarText: {fileID: 0}
   ScoreText: {fileID: 0}
-  itemText: {fileID: 799426349}
-  item2Text: {fileID: 845366026}
+  "\uC57C\uAD6C\uACF5Text": {fileID: 0}
+  "\uBC14\uC774\uC62C\uB9B0Text": {fileID: 0}
+  "\uC218\uAC11Text": {fileID: 0}
+  "\uCCAD\uC9C4\uAE30Text": {fileID: 0}
 --- !u!1 &1549153096
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,8 +34,11 @@ public class CharacterUpgradeManager : MonoBehaviour
         itemScenes.Add("수갑", "PoliceScene");
         itemScenes.Add("청진기", "DoctorScene");
 
-        calendarManager = new CalendarManager(DateTime.Now);
+        DateTime startdate = new DateTime(2005, 1, 19);
+        calendarManager = new CalendarManager(startdate);
+
         UpdateUI();
+        UpdateCalendarUI();
     }
 
     public void OnItemMerged(int newNumber, string itemType)
@@ -94,6 +97,6 @@ public class CharacterUpgradeManager : MonoBehaviour
     void UpdateCalendarUI()
     {
         DateTime currentDate = calendarManager.GetCurrentDate();
-        calendarText.text = "Current Date: " + currentDate.ToString("MMMM yyyy");
+        calendarText.text = currentDate.ToString("yyyy") + "년 " + currentDate.ToString("MMMM");
     }
 }
