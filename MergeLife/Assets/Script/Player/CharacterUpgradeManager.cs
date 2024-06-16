@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,10 @@ public class CharacterUpgradeManager : MonoBehaviour
 {
     private Dictionary<string, int> mergeCounts = new Dictionary<string, int>();
     public Dictionary<string, string> itemScenes = new Dictionary<string, string>();
+
+    public Text calendarText;
+
+    private CalendarManager calendarManager;
 
     public Text ScoreText;
     private int Score = 0;
@@ -29,6 +34,7 @@ public class CharacterUpgradeManager : MonoBehaviour
         itemScenes.Add("수갑", "PoliceScene");
         itemScenes.Add("청진기", "DoctorScene");
 
+        calendarManager = new CalendarManager(DateTime.Now);
         UpdateUI();
     }
 
@@ -49,6 +55,8 @@ public class CharacterUpgradeManager : MonoBehaviour
                 Debug.LogWarning("Unknown item type: " + itemType);
             }
         }
+        calendarManager.AdvanceThreeMonths();
+        UpdateCalendarUI();
     }
 
     void CheckMergeCount(string itemType)
@@ -81,5 +89,11 @@ public class CharacterUpgradeManager : MonoBehaviour
         바이올린Text.text = ": " + mergeCounts["바이올린"] + " / 4";
         수갑Text.text = ": " + mergeCounts["수갑"] + " / 4";
         청진기Text.text = ": " + mergeCounts["청진기"] + " / 4";
+    }
+
+    void UpdateCalendarUI()
+    {
+        DateTime currentDate = calendarManager.GetCurrentDate();
+        calendarText.text = "Current Date: " + currentDate.ToString("MMMM yyyy");
     }
 }
