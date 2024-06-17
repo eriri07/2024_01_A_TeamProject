@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour, IDropHandler
+public class MoneySlot : MonoBehaviour, IDropHandler
 {
     public GameObject item
     {
@@ -21,11 +21,11 @@ public class Slot : MonoBehaviour, IDropHandler
     {
         if (!item)
         {
-            DragManager.beingDraggedItem.transform.SetParent(transform);
+            MoneyDragManager.beingDraggedItem.transform.SetParent(transform);
         }
         else
         {
-            Item dragItem = DragManager.beingDraggedItem.GetComponent<Item>();
+            Item dragItem = MoneyDragManager.beingDraggedItem.GetComponent<Item>();
             Item slotItem = item.GetComponent<Item>();
 
             if (dragItem.itemType == slotItem.itemType && dragItem.number == slotItem.number)
@@ -33,13 +33,13 @@ public class Slot : MonoBehaviour, IDropHandler
                 int newNumber = dragItem.number + 1;
                 Destroy(dragItem.gameObject);
 
-                InventoryManager.inst.UpgradeExistingItem(slotItem, newNumber);
+                MoneyInventoryManager.inst.UpgradeExistingItem(slotItem, newNumber);
 
             }
             else
             {
-                DragManager.beingDraggedItem.transform.SetParent(DragManager.beingDraggedItem.GetComponent<DragManager>().startParent);
-                DragManager.beingDraggedItem.transform.localPosition = Vector3.zero;
+                MoneyDragManager.beingDraggedItem.transform.SetParent(MoneyDragManager.beingDraggedItem.GetComponent<MoneyDragManager>().startParent);
+                MoneyDragManager.beingDraggedItem.transform.localPosition = Vector3.zero;
             }
         }
     }

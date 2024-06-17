@@ -1,10 +1,10 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class MoneyDragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public static GameObject beingDraggedItem;
     Vector3 startPosition;
@@ -39,13 +39,10 @@ public class DragManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         beingDraggedItem = null;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
-        if (!eventData.pointerEnter || eventData.pointerEnter.GetComponent<Slot>() == null)
+        if (!eventData.pointerEnter || eventData.pointerEnter.GetComponent<MoneySlot>() == null)
         {
             transform.position = startPosition;
             transform.SetParent(startParent);
         }
     }
 }
-
-
-*/
