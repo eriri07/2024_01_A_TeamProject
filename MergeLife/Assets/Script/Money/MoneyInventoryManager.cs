@@ -53,7 +53,7 @@ public class MoneyInventoryManager : MonoBehaviour
 
     public void UpgradeExistingItem(Item item, int newNumber)
     {
-        string itemType = item.itemType;
+        string itemType = item.itemName;
 
         if (newNumber < 4)
         {

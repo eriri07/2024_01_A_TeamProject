@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
+  itemName: "\uBC14\uC774\uC62C\uB9B0"
   colors:
   - {r: 1, g: 0.61960787, b: 0.6780046, a: 1}
   - {r: 1, g: 0.39999998, b: 0.4911416, a: 1}
