@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
-  itemType: 
+  itemName: "\uCCAD\uC9C4\uAE30"
   colors:
   - {r: 0.9967485, g: 1, b: 0.61960787, a: 1}
   - {r: 1, g: 0.9737085, b: 0.39999998, a: 1}

@@ -50,19 +50,15 @@ using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
 {
-    public static MoneyManager inst;
-    private Dictionary<string, int> mergeCounts = new Dictionary<string, int>();
-    public Dictionary<string, string> itemScenes = new Dictionary<string, string>();
-
-    public Text MoneyText;
-    public int Money = 0;
+    public static MoneyManager instance;
+    public Text moneyText;
+    public int money = 0;
 
     void Awake()
     {
-        if (inst == null)
+        if (instance == null)
         {
-            inst = this;
-            DontDestroyOnLoad(gameObject);
+            instance = this;
         }
         else
         {
@@ -72,39 +68,48 @@ public class MoneyManager : MonoBehaviour
 
     void Start()
     {
-        mergeCounts.Add("µ·", 0);
-        UpdateMoneyUI();
+        UpdateMoneyText();
+    }
+
+    public int Money
+    {
+        get { return money; }
+        set
+        {
+            money = value;
+            UpdateMoneyText();
+        }
+    }
+
+    public void SpendMoney(int amount)
+    {
+        if (money >= amount)
+        {
+            money -= amount;
+            UpdateMoneyText();
+        }
+        else
+        {
+            Debug.LogWarning("Not enough money!");
+        }
+    }
+
+    public void EarnMoney(int amount)
+    {
+        money += amount;
+        UpdateMoneyText();
+    }
+
+    public void UpdateMoneyText()
+    {
+        moneyText.text = money + "¿ø";
     }
 
     public void OnItemMerged(int newNumber, string itemType)
     {
         if (newNumber == 4)
         {
-            Money += 1000;
-            UpdateMoneyUI();
-
-            if (mergeCounts.ContainsKey(itemType))
-            {
-                mergeCounts[itemType]++;
-            }
-            else
-            {
-                Debug.LogWarning("Unknown item type: " + itemType);
-            }
+            EarnMoney(1000);
         }
-    }
-
-    public void SpendMoney(int amount)
-    {
-        if (Money >= amount)
-        {
-            Money -= amount;
-            UpdateMoneyUI();
-        }
-    }
-
-    void UpdateMoneyUI()
-    {
-        MoneyText.text = Money + "¿ø";
     }
 }

@@ -39,7 +39,6 @@ public class ShopManager : MonoBehaviour
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -52,10 +51,10 @@ public class ShopManager : MonoBehaviour
     {
         if (moneyManager == null)
         {
-            moneyManager = MoneyManager.inst;
+            moneyManager = MoneyManager.instance;
             if (moneyManager == null)
             {
-                Debug.LogError("이 씬에 머니매니저가 없음");
+                Debug.LogError("MoneyManager not found in the scene!");
             }
         }
 
@@ -64,7 +63,7 @@ public class ShopManager : MonoBehaviour
             inventoryManager = InventoryManager.instance;
             if (inventoryManager == null)
             {
-                Debug.LogError("이 씬에 인벤토리매니저가 없음");
+                Debug.LogError("InventoryManager not found in the scene!");
             }
         }
     }
@@ -77,16 +76,18 @@ public class ShopManager : MonoBehaviour
             if (moneyManager.Money >= price)
             {
                 moneyManager.SpendMoney(price);
-                inventoryManager.itemPrefabs.Add(shopItems[itemIndex]);
+                inventoryManager.PurchaseItem(shopItems[itemIndex].name, price);
+                Debug.Log("Item bought: " + shopItems[itemIndex].name);
             }
             else
             {
-                Debug.LogWarning("돈이 부족함");
+                Debug.LogWarning("Not enough money");
             }
         }
         else
         {
-            Debug.LogWarning("잘못된 아이템 인덱스");
+            Debug.LogWarning("Invalid item index");
         }
     }
 }
+

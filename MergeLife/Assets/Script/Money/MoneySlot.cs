@@ -1,62 +1,3 @@
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-
-public class MoneySlot : MonoBehaviour, IDropHandler
-{
-    public GameObject item
-    {
-        get
-        {
-            if (transform.childCount > 0)
-            {
-                return transform.GetChild(0).gameObject;
-            }
-            return null;
-        }
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        if (!item)
-        {
-            MoneyDragManager.beingDraggedItem.transform.SetParent(transform);
-        }
-        else
-        {
-            Item dragItem = MoneyDragManager.beingDraggedItem.GetComponent<Item>();
-            Item slotItem = item.GetComponent<Item>();
-
-            if (dragItem.itemType == slotItem.itemType && dragItem.number == slotItem.number)
-            {
-                int newNumber = dragItem.number + 1;
-                Destroy(dragItem.gameObject);
-
-                MoneyInventoryManager.inst.UpgradeExistingItem(slotItem, newNumber);
-
-            }
-            else
-            {
-                MoneyDragManager.beingDraggedItem.transform.SetParent(MoneyDragManager.beingDraggedItem.GetComponent<MoneyDragManager>().startParent);
-                MoneyDragManager.beingDraggedItem.transform.localPosition = Vector3.zero;
-            }
-        }
-    }
-
-    public void SetItem(Item newItem)
-    {
-        newItem.transform.SetParent(transform);
-        newItem.transform.localPosition = Vector3.zero;
-    }
-
-    public bool IsEmpty()
-    {
-        return item == null;
-    }
-}
-*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -78,27 +19,51 @@ public class MoneySlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("OnDrop called.");
         if (!item)
         {
-            MoneyDragManager.beingDraggedItem.transform.SetParent(transform);
+            if (MoneyDragManager.beingDraggedItem != null)
+            {
+                MoneyDragManager.beingDraggedItem.transform.SetParent(transform);
+                Debug.Log("Item dropped into empty slot.");
+            }
+            else
+            {
+                Debug.LogWarning("No item is being dragged.");
+            }
         }
         else
         {
-            Item dragItem = MoneyDragManager.beingDraggedItem.GetComponent<Item>();
+            Item dragItem = MoneyDragManager.beingDraggedItem?.GetComponent<Item>();
             Item slotItem = item.GetComponent<Item>();
 
-            if (dragItem.itemName == slotItem.itemName && dragItem.number == slotItem.number)
+            if (dragItem != null && slotItem != null && dragItem.itemName == slotItem.itemName && dragItem.number == slotItem.number)
             {
                 int newNumber = dragItem.number + 1;
                 Destroy(dragItem.gameObject);
 
-                MoneyInventoryManager.inst.UpgradeExistingItem(slotItem, newNumber);
-
+                if (MoneyInventoryManager.inst != null)
+                {
+                    MoneyInventoryManager.inst.UpgradeExistingItem(slotItem, newNumber);
+                    Debug.Log("Items merged: " + slotItem.itemName);
+                }
+                else
+                {
+                    Debug.LogError("MoneyInventoryManager.inst is null.");
+                }
             }
             else
             {
-                MoneyDragManager.beingDraggedItem.transform.SetParent(MoneyDragManager.beingDraggedItem.GetComponent<MoneyDragManager>().startParent);
-                MoneyDragManager.beingDraggedItem.transform.localPosition = Vector3.zero;
+                if (MoneyDragManager.beingDraggedItem != null)
+                {
+                    MoneyDragManager.beingDraggedItem.transform.SetParent(MoneyDragManager.beingDraggedItem.GetComponent<MoneyDragManager>().startParent);
+                    MoneyDragManager.beingDraggedItem.transform.localPosition = Vector3.zero;
+                    Debug.Log("Item returned to original slot.");
+                }
+                else
+                {
+                    Debug.LogWarning("No item is being dragged.");
+                }
             }
         }
     }
@@ -114,3 +79,4 @@ public class MoneySlot : MonoBehaviour, IDropHandler
         return item == null;
     }
 }
+

@@ -41,7 +41,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(DragManager))]
-
 public class Item : MonoBehaviour
 {
     public int number;
@@ -60,11 +59,15 @@ public class Item : MonoBehaviour
         transform.localPosition = Vector3.zero;
     }
 
-    public Color SetColor(int colorvalue)
+    public Color SetColor(int colorValue)
     {
-        if (colorvalue < 10)
-            return colors[colorvalue - 1];
+        if (colorValue <= colors.Length && colorValue > 0)
+        {
+            return colors[colorValue - 1];
+        }
         else
+        {
             return Color.black;
+        }
     }
 }

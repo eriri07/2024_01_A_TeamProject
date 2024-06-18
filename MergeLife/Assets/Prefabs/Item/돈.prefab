@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 5325023251549961601}
   - component: {fileID: 8596140916043154505}
   - component: {fileID: 4500114267674907614}
+  - component: {fileID: 6445025449000368011}
   - component: {fileID: 3594867316150491513}
   - component: {fileID: 6978167599110452847}
   - component: {fileID: -7328670600225785731}
   - component: {fileID: -178337393629139355}
   m_Layer: 5
-  m_Name: "\uC57C\uAD6C\uACF5"
+  m_Name: "\uB3C8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,6 +64,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startParent: {fileID: 0}
+--- !u!114 &6445025449000368011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382114919268917671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249dc3f2afd824a4b912c8dc7c6278a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startParent: {fileID: 0}
 --- !u!114 &3594867316150491513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,12 +90,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
-  itemName: "\uC57C\uAD6C\uACF5"
+  itemName: 
   colors:
-  - {r: 0.6179246, g: 0.7932606, b: 1, a: 1}
-  - {r: 0.4009434, g: 0.67268044, b: 1, a: 1}
-  - {r: 0.21226418, g: 0.5726663, b: 1, a: 1}
-  - {r: 0, g: 0.45890427, b: 1, a: 1}
+  - {r: 0.61960787, g: 1, b: 0.6199621, a: 1}
+  - {r: 0.39999998, g: 1, b: 0.4231458, a: 1}
+  - {r: 0.2117647, g: 1, b: 0.24148355, a: 1}
+  - {r: 0, g: 1, b: 0.15852618, a: 1}
 --- !u!225 &6978167599110452847
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -114,7 +128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb8e027689d87614eb74b0865c1d6c62, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
