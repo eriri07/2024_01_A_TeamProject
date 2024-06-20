@@ -1,63 +1,8 @@
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ShopManager : MonoBehaviour
-{
-    public MoneyManager moneyManager;
-    public InventoryManager inventoryManager;
-    public List<GameObject> shopItems;
-    public List<int> itemPrices;
-
-    void Start()
-    {
-        if (moneyManager == null)
-        {
-            moneyManager = MoneyManager.instance;
-            if (moneyManager == null)
-            {
-                Debug.LogError("MoneyManager not found in the scene!");
-            }
-        }
-
-        if (inventoryManager == null)
-        {
-            inventoryManager = InventoryManager.instance;
-            if (inventoryManager == null)
-            {
-                Debug.LogError("InventoryManager not found in the scene!");
-            }
-        }
-    }
-
-    public void BuyItem(int itemIndex)
-    {
-        if (itemIndex < shopItems.Count && itemIndex < itemPrices.Count)
-        {
-            int price = itemPrices[itemIndex];
-            if (moneyManager.Money >= price)
-            {
-                moneyManager.SpendMoney(price);
-                inventoryManager.PurchaseItem(shopItems[itemIndex].name, price);
-                Debug.Log("Item bought: " + shopItems[itemIndex].name);
-            }
-            else
-            {
-                Debug.LogWarning("Not enough money");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Invalid item index");
-        }
-    }
-}
-*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class ShopManager : MonoBehaviour
 {
@@ -65,9 +10,8 @@ public class ShopManager : MonoBehaviour
     public InventoryManager inventoryManager;
     public List<GameObject> shopItems;
     public List<int> itemPrices;
-    public List<Button> itemButtons; // 각 아이템의 구매 버튼
+    public List<Button> itemButtons; 
 
-    // 각 아이템 패널의 구매 완료 메시지 패널
     public List<GameObject> purchaseCompletePanels;
 
     void Start()
@@ -95,7 +39,6 @@ public class ShopManager : MonoBehaviour
             Debug.LogError("The number of itemButtons or purchaseCompletePanels does not match the number of shopItems!");
         }
 
-        // 모든 구매 완료 패널을 비활성화
         foreach (var panel in purchaseCompletePanels)
         {
             panel.SetActive(false);
@@ -112,8 +55,8 @@ public class ShopManager : MonoBehaviour
                 moneyManager.SpendMoney(price);
                 inventoryManager.PurchaseItem(shopItems[itemIndex].name, price);
                 Debug.Log("Item bought: " + shopItems[itemIndex].name);
-                UpdateButtonToPurchased(itemIndex); // 구매 완료 텍스트로 변경
-                ShowPurchaseCompletePanel(itemIndex); // 구매 완료 패널 표시
+                UpdateButtonToPurchased(itemIndex); 
+                ShowPurchaseCompletePanel(itemIndex); 
             }
             else
             {
@@ -134,6 +77,8 @@ public class ShopManager : MonoBehaviour
             if (buttonText != null)
             {
                 buttonText.text = "구매 완료";
+
+                SoundManager.instance.PlaySound("Cash");
             }
             else
             {

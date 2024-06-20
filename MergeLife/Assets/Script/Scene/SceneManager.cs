@@ -12,6 +12,8 @@ public class SceneMager : MonoBehaviour
     public GameObject pauseCanvas;
     public GameObject shopCanvas;
     public GameObject GalleryCanvas;
+    public GameObject settingCanvas;
+
 
 
     public void GameStart()
@@ -21,7 +23,7 @@ public class SceneMager : MonoBehaviour
 
     public void GameSetting()
     {
-        SceneManager.LoadScene("GameSetting");
+        settingCanvas.SetActive(true);
     }
 
     public void GameExit()
@@ -67,5 +69,10 @@ public class SceneMager : MonoBehaviour
     public void OffGallery()
     {
         GalleryCanvas.SetActive(false);
+    }
+
+    public void OffSetting()
+    {
+        settingCanvas.SetActive(false);
     }
 }
