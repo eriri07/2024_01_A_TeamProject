@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class StudentCharacterManager : MonoBehaviour
 {
@@ -62,7 +61,7 @@ public class StudentCharacterManager : MonoBehaviour
 
     void CheckMergeCount(string itemType)
     {
-        if (mergeCounts[itemType] >= 2)
+        if (mergeCounts[itemType] >= 4)
         {
             LoadNextScene(itemType);
         }
@@ -77,6 +76,9 @@ public class StudentCharacterManager : MonoBehaviour
             {
                 SceneManager.LoadScene(nextSceneName);
             }
+
+            SoundManager.instance.PlaySound("End");
+
         }
         else
         {

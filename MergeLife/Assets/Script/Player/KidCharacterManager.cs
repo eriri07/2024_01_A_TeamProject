@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class KidCharacterManager : MonoBehaviour
 {
@@ -77,6 +76,9 @@ public class KidCharacterManager : MonoBehaviour
             {
                 SceneManager.LoadScene(nextSceneName);
             }
+
+            SoundManager.instance.PlaySound("End");
+
         }
         else
         {
