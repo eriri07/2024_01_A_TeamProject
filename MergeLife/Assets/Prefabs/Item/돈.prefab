@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5325023251549961601}
   - component: {fileID: 8596140916043154505}
-  - component: {fileID: 4500114267674907614}
   - component: {fileID: 6445025449000368011}
   - component: {fileID: 3594867316150491513}
   - component: {fileID: 6978167599110452847}
@@ -51,19 +50,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2382114919268917671}
   m_CullTransparentMesh: 1
---- !u!114 &4500114267674907614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2382114919268917671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f34df42f607f7a469375cdc03797618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startParent: {fileID: 0}
 --- !u!114 &6445025449000368011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,10 +78,10 @@ MonoBehaviour:
   number: 0
   itemName: 
   colors:
-  - {r: 0.61960787, g: 1, b: 0.6199621, a: 1}
-  - {r: 0.39999998, g: 1, b: 0.4231458, a: 1}
-  - {r: 0.2117647, g: 1, b: 0.24148355, a: 1}
-  - {r: 0, g: 1, b: 0.15852618, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
 --- !u!225 &6978167599110452847
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -120,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 899a7f458dad9a740869a20c3e3b2d53, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -128,7 +114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 394899dbf2938874ca7d1025f7598406, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

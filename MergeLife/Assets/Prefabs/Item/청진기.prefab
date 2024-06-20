@@ -78,10 +78,10 @@ MonoBehaviour:
   number: 0
   itemName: "\uCCAD\uC9C4\uAE30"
   colors:
-  - {r: 0.9967485, g: 1, b: 0.61960787, a: 1}
-  - {r: 1, g: 0.9737085, b: 0.39999998, a: 1}
-  - {r: 1, g: 0.99060297, b: 0.2117647, a: 1}
-  - {r: 1, g: 0.989954, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
 --- !u!225 &6978167599110452847
 CanvasGroup:
   m_ObjectHideFlags: 0

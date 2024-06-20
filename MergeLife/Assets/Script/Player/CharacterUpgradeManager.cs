@@ -116,9 +116,7 @@ public class CharacterUpgradeManager : MonoBehaviour
     public Text 수갑Text;
     public Text 청진기Text;
 
-    // New health-related fields
-    public Text healthText;
-    private int health = 100;
+    public HealthManager healthManager;
 
     void Start()
     {
@@ -137,7 +135,6 @@ public class CharacterUpgradeManager : MonoBehaviour
 
         UpdateUI();
         UpdateCalendarUI();
-        UpdateHealthUI();
     }
 
     public void OnItemMerged(int newNumber, string itemType)
@@ -156,9 +153,8 @@ public class CharacterUpgradeManager : MonoBehaviour
             }
         }
 
-        // Decrease health by 5
-        health -= 5;
-        UpdateHealthUI();
+        // 체력 5 감소
+        healthManager.DecreaseHealth(5);
 
         calendarManager.AdvanceThreeMonths();
         UpdateCalendarUI();
@@ -200,10 +196,5 @@ public class CharacterUpgradeManager : MonoBehaviour
     {
         DateTime currentDate = calendarManager.GetCurrentDate();
         calendarText.text = currentDate.ToString("yyyy") + "년 " + currentDate.ToString("MMMM");
-    }
-
-    void UpdateHealthUI()
-    {
-        healthText.text = ": " + health;
     }
 }
