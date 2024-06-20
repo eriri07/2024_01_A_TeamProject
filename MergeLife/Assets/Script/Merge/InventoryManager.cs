@@ -12,6 +12,11 @@ public class InventoryManager : MonoBehaviour
 
     private List<string> purchasedItems = new List<string>();
 
+    public BabyCharacterManager babyCharacterManager;
+    public KidCharacterManager kidCharacterManager;
+    public StudentCharacterManager studentCharacterManager;
+    public UniversityCharacterManager universityCharacterManager;
+    public University2CharacterManager university2CharacterManager;
     public CharacterUpgradeManager characterUpgradeManager;
 
     void Awake()
@@ -32,10 +37,12 @@ public class InventoryManager : MonoBehaviour
         if (characterUpgradeManager == null)
         {
             characterUpgradeManager = FindObjectOfType<CharacterUpgradeManager>();
-            if (characterUpgradeManager == null)
-            {
-                Debug.LogError("CharacterUpgradeManager not found in the scene!");
-            }
+            babyCharacterManager = FindObjectOfType<BabyCharacterManager>();
+            kidCharacterManager = FindObjectOfType<KidCharacterManager>();
+            studentCharacterManager = FindObjectOfType<StudentCharacterManager>();
+            universityCharacterManager = FindObjectOfType<UniversityCharacterManager>();
+            university2CharacterManager = FindObjectOfType<University2CharacterManager>();
+
         }
     }
 
@@ -59,6 +66,8 @@ public class InventoryManager : MonoBehaviour
                 GameObject newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
                 newItem.GetComponent<Item>().SetItem(1, itemName, emptySlot.transform);
                 emptySlot.SetItem(newItem.GetComponent<Item>());
+
+                SoundManager.instance.PlaySound("Spawn");
             }
         }
         else
@@ -83,6 +92,31 @@ public class InventoryManager : MonoBehaviour
             characterUpgradeManager.OnItemMerged(newNumber, item.itemName);
         }
 
+        if (babyCharacterManager != null)
+        {
+            babyCharacterManager.OnItemMerged(newNumber, item.itemName);
+        }
+
+        if (kidCharacterManager != null)
+        {
+            kidCharacterManager.OnItemMerged(newNumber, item.itemName);
+        }
+
+        if (studentCharacterManager != null)
+        {
+            studentCharacterManager.OnItemMerged(newNumber, item.itemName);
+        }
+
+        if (universityCharacterManager != null)
+        {
+            universityCharacterManager.OnItemMerged(newNumber, item.itemName);
+        }
+
+        if (university2CharacterManager != null)
+        {
+            university2CharacterManager.OnItemMerged(newNumber, item.itemName);
+        }
+
         SoundManager.instance.PlaySound("Drop");
 
     }
@@ -104,7 +138,6 @@ public class InventoryManager : MonoBehaviour
         if (!purchasedItems.Contains(itemName))
         {
             purchasedItems.Add(itemName);
-            // Optional: You can add additional logic here if you need to use the price for something.
         }
     }
 }

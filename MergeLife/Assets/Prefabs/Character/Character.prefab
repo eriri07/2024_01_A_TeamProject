@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 1183973721433693654}
   - component: {fileID: 5071407781981040130}
   - component: {fileID: 9125283076623137779}
+  - component: {fileID: 205381390506788147}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -177,3 +178,11 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!222 &205381390506788147
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965436155231564330}
+  m_CullTransparentMesh: 1

@@ -5,8 +5,9 @@ public class HealthManager : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
-
     public Text healthText;
+
+    public GameOverManager gameOverManager;
 
     void Start()
     {
@@ -22,15 +23,28 @@ public class HealthManager : MonoBehaviour
             currentHealth = 0;
         }
         UpdateHealthUI();
+
+        if (currentHealth == 0)
+        {
+            gameOverManager.StartGameOverSequence();
+        }
     }
 
-    public int GetCurrentHealth()
+    public void IncreaseHealth(int amount)
     {
-        return currentHealth;
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        UpdateHealthUI();
     }
 
-    private void UpdateHealthUI()
+    void UpdateHealthUI()
     {
-        healthText.text = ": " + currentHealth;
+        if (healthText != null)
+        {
+            healthText.text = ": " + currentHealth;
+        }
     }
 }

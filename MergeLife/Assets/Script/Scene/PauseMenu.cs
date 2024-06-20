@@ -45,16 +45,11 @@ public class PauseMenu : MonoBehaviour
 
     public void ToMain()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("MainScene");
-        pauseCanvas.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
     }
 
     public void QuitGame()
     {
-        Debug.Log("아직 미구현입니다...");
         Application.Quit();
     }
 }

@@ -1,18 +1,20 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 
 public class ShopManager : MonoBehaviour
 {
     public MoneyManager moneyManager;
     public InventoryManager inventoryManager;
+    public HealthManager healthManager;
+
     public List<GameObject> shopItems;
     public List<int> itemPrices;
-    public List<Button> itemButtons; 
+    public int healthPotionIndex; 
 
-    public List<GameObject> purchaseCompletePanels;
+    public GameObject purchaseCompletePanelPrefab;
+    private GameObject currentPurchaseCompletePanel;
 
     void Start()
     {
@@ -34,9 +36,111 @@ public class ShopManager : MonoBehaviour
             }
         }
 
-        if (itemButtons.Count != shopItems.Count || purchaseCompletePanels.Count != shopItems.Count)
+        if (healthManager == null)
         {
-            Debug.LogError("The number of itemButtons or purchaseCompletePanels does not match the number of shopItems!");
+            healthManager = FindObjectOfType<HealthManager>();
+            if (healthManager == null)
+            {
+                Debug.LogError("HealthManager not found in the scene!");
+            }
+        }
+    }
+
+    public void BuyItem(int itemIndex)
+    {
+        if (itemIndex < shopItems.Count && itemIndex < itemPrices.Count)
+        {
+            int price = itemPrices[itemIndex];
+            if (moneyManager.Money >= price)
+            {
+                moneyManager.SpendMoney(price);
+                inventoryManager.PurchaseItem(shopItems[itemIndex].name, price);
+
+                if (itemIndex == healthPotionIndex) 
+                {
+                    healthManager.IncreaseHealth(30);
+                }
+
+                Debug.Log("Item bought: " + shopItems[itemIndex].name);
+
+                ShowPurchaseCompletePanel(shopItems[itemIndex].name);
+
+                SoundManager.instance.PlaySound("Cash");
+            }
+            else
+            {
+                Debug.LogWarning("Not enough money");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Invalid item index");
+        }
+    }
+
+    void ShowPurchaseCompletePanel(string itemName)
+    {
+        if (purchaseCompletePanelPrefab != null)
+        {
+            if (currentPurchaseCompletePanel != null)
+            {
+                Destroy(currentPurchaseCompletePanel);
+            }
+            currentPurchaseCompletePanel = Instantiate(purchaseCompletePanelPrefab, transform);
+
+            Text[] panelTexts = currentPurchaseCompletePanel.GetComponentsInChildren<Text>();
+            foreach (Text text in panelTexts)
+            {
+                if (text.name == "PurchaseCompleteText")
+                {
+                    text.text = itemName + " purchased successfully!";
+                    break;
+                }
+            }
+
+            Destroy(currentPurchaseCompletePanel, 2f);
+        }
+    }
+}
+*/
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ShopManager : MonoBehaviour
+{
+    public MoneyManager moneyManager;
+    public InventoryManager inventoryManager;
+    public List<GameObject> shopItems;
+    public List<int> itemPrices;
+    public List<Button> itemButtons; 
+
+    public List<GameObject> purchaseCompletePanels;
+
+    public HealthManager healthManager;
+
+    public int healthPotionIndex;
+
+    void Start()
+    {
+        if (moneyManager == null)
+        {
+            moneyManager = MoneyManager.instance;
+            if (moneyManager == null)
+            {
+                Debug.LogError("MoneyManager not found in the scene!");
+            }
+        }
+
+        if (inventoryManager == null)
+        {
+            inventoryManager = InventoryManager.instance;
+            if (inventoryManager == null)
+            {
+                Debug.LogError("InventoryManager not found in the scene!");
+            }
         }
 
         foreach (var panel in purchaseCompletePanels)
@@ -56,7 +160,14 @@ public class ShopManager : MonoBehaviour
                 inventoryManager.PurchaseItem(shopItems[itemIndex].name, price);
                 Debug.Log("Item bought: " + shopItems[itemIndex].name);
                 UpdateButtonToPurchased(itemIndex); 
-                ShowPurchaseCompletePanel(itemIndex); 
+                ShowPurchaseCompletePanel(itemIndex);
+
+                SoundManager.instance.PlaySound("Cash");
+
+                if (itemIndex == healthPotionIndex) 
+                {
+                    healthManager.IncreaseHealth(30);
+                }
             }
             else
             {
@@ -77,8 +188,6 @@ public class ShopManager : MonoBehaviour
             if (buttonText != null)
             {
                 buttonText.text = "구매 완료";
-
-                SoundManager.instance.PlaySound("Cash");
             }
             else
             {
@@ -102,5 +211,20 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-}
 
+    void HidePurchaseCompletePanel(int itemIndex)
+    {
+        if (itemIndex < purchaseCompletePanels.Count)
+        {
+            GameObject panel = purchaseCompletePanels[itemIndex];
+            if (panel != null)
+            {
+                panel.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("Purchase complete panel is missing!");
+            }
+        }
+    }
+}

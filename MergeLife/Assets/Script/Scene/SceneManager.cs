@@ -75,4 +75,9 @@ public class SceneMager : MonoBehaviour
     {
         settingCanvas.SetActive(false);
     }
+
+    public void ReStart()
+    {
+        SceneManager.LoadScene("BabyScene");
+    }
 }

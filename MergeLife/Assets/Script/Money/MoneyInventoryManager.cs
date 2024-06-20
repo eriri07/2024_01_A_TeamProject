@@ -54,6 +54,8 @@ public class MoneyInventoryManager : MonoBehaviour
             item.GetComponent<Item>().SetItem(1, itemPrefab.name, emptySlot.transform);
 
             emptySlot.SetItem(item.GetComponent<Item>());
+
+            SoundManager.instance.PlaySound("Spawn");
         }
         else
         {
