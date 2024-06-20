@@ -6836,6 +6836,13 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 7573475541022779762, guid: b852e82e9661e2c48b22675dc11b71d2, type: 2}
     sources: {fileID: 0}
+  - name: End
+    clip: {fileID: 8300000, guid: 2a1fb92d6a5483c40838b9f30b96a9b6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixerGroup: {fileID: 7573475541022779762, guid: b852e82e9661e2c48b22675dc11b71d2, type: 2}
+    sources: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: b852e82e9661e2c48b22675dc11b71d2, type: 2}
 --- !u!4 &822832958
 Transform:

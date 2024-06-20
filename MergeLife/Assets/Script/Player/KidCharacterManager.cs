@@ -76,9 +76,6 @@ public class KidCharacterManager : MonoBehaviour
             {
                 SceneManager.LoadScene(nextSceneName);
             }
-
-            SoundManager.instance.PlaySound("End");
-
         }
         else
         {
