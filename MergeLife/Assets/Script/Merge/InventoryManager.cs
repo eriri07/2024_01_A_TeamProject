@@ -92,7 +92,6 @@ public class InventoryManager : MonoBehaviour
 }
 */
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -105,7 +104,7 @@ public class InventoryManager : MonoBehaviour
 
     private List<string> purchasedItems = new List<string>();
 
-    public MoneyManager moneyManager;
+    public CharacterUpgradeManager characterUpgradeManager;
 
     void Awake()
     {
@@ -122,13 +121,12 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         inventorySlots = itemsParent.GetComponentsInChildren<InventorySlot>();
-
-        if (moneyManager == null)
+        if (characterUpgradeManager == null)
         {
-            moneyManager = FindObjectOfType<MoneyManager>();
-            if (moneyManager == null)
+            characterUpgradeManager = FindObjectOfType<CharacterUpgradeManager>();
+            if (characterUpgradeManager == null)
             {
-                Debug.LogError("MoneyManager not found in the scene!");
+                Debug.LogError("CharacterUpgradeManager not found in the scene!");
             }
         }
     }
@@ -153,11 +151,6 @@ public class InventoryManager : MonoBehaviour
                 GameObject newItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
                 newItem.GetComponent<Item>().SetItem(1, itemName, emptySlot.transform);
                 emptySlot.SetItem(newItem.GetComponent<Item>());
-                Debug.Log("아이템 생성됨: " + itemName); 
-            }
-            else
-            {
-                Debug.LogWarning("아이템 프리팹을 찾을 수 없음: " + itemName); 
             }
         }
         else
@@ -176,6 +169,11 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+
+        if (characterUpgradeManager != null)
+        {
+            characterUpgradeManager.OnItemMerged(newNumber, item.itemName);
+        }
     }
 
     InventorySlot GetEmptyInventorySlot()
@@ -184,31 +182,18 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot.IsEmpty())
             {
-                Debug.Log("빈 슬롯 발견: " + slot.name); 
                 return slot;
             }
         }
-        Debug.LogWarning("빈 슬롯을 찾을 수 없음"); 
         return null;
     }
 
-    public void PurchaseItem(string itemName, int itemCost)
+    public void PurchaseItem(string itemName, int price)
     {
-        if (moneyManager.Money >= itemCost)
+        if (!purchasedItems.Contains(itemName))
         {
-            moneyManager.Money -= itemCost;
-            moneyManager.UpdateMoneyText();
-
-            if (!purchasedItems.Contains(itemName))
-            {
-                purchasedItems.Add(itemName);
-                Debug.Log("아이템 구매됨: " + itemName);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("돈이 부족합니다.");
+            purchasedItems.Add(itemName);
+            // Optional: You can add additional logic here if you need to use the price for something.
         }
     }
 }
-

@@ -34,13 +34,9 @@ public class Item : MonoBehaviour
 
 */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(DragManager))]
 public class Item : MonoBehaviour
 {
     public int number;
@@ -61,13 +57,9 @@ public class Item : MonoBehaviour
 
     public Color SetColor(int colorValue)
     {
-        if (colorValue <= colors.Length && colorValue > 0)
-        {
+        if (colorValue < colors.Length)
             return colors[colorValue - 1];
-        }
         else
-        {
             return Color.black;
-        }
     }
 }
